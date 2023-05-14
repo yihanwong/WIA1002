@@ -8,7 +8,7 @@ public class ImageProcessor2 {
     public static void main(String[] args) {
         // File paths for four images
         String[] imagePaths = {
-                "mage 1.png",
+                "image 1.png",
                 "image 2.png",
                 "image 3.png",
                 "image 4.png"
