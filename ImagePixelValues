@@ -1,0 +1,49 @@
+import java.awt.image.BufferedImage;
+import java.awt.Color;
+import java.io.File;
+import javax.imageio.ImageIO;
+
+
+public class ImagePixelValues {
+    public static void main(String[] args) {
+        try {
+            // Load the image file
+            File imageFile = new File("C:\\Users/visal/Documents/UM SEM 4/DS/DS Asgmnt/image 1.png");
+            BufferedImage image = ImageIO.read(imageFile);
+
+            // Get image dimensions
+            int width = image.getWidth();
+            int height = image.getHeight();
+
+            // Create a 2D array to store the pixel values
+            int[][] pixelValues = new int[height][width];
+
+            // Iterate over each pixel and get its gray value
+            for (int y = 0; y < height; y++) {
+                for (int x = 0; x < width; x++) {
+                    // Get the color of the pixel
+                    Color color = new Color(image.getRGB(x, y));
+
+                    // Calculate the gray value (average of red, green, and blue components)
+                    int gray = (color.getRed() + color.getGreen() + color.getBlue()) / 3;
+
+                    // Store the gray value in the pixel values array
+                    pixelValues[y][x] = gray;
+                }
+            }
+
+            // Access the pixel values as needed
+            // pixelValues[y][x] represents the gray value of the pixel at position (x, y)
+
+            // Example: Print the pixel values
+            for (int y = 0; y < height; y++) {
+                for (int x = 0; x < width; x++) {
+                    System.out.print(pixelValues[y][x] + " ");
+                }
+                System.out.println();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
